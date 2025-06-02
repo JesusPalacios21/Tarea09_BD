@@ -55,6 +55,7 @@ CREATE TABLE desarrollos (
     fecha_inicio DATETIME NOT NULL,
     fecha_fin DATETIME NOT NULL,
     puntaje_total DECIMAL(5,2),
+    estado ENUM('en_progreso', 'finalizado') DEFAULT 'en_progreso'
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
     FOREIGN KEY (evaluacion_id) REFERENCES evaluaciones(id),
     UNIQUE(usuario_id, evaluacion_id)
@@ -69,3 +70,4 @@ CREATE TABLE respuestas (
     FOREIGN KEY (pregunta_id) REFERENCES preguntas(id),
     FOREIGN KEY (alternativa_id) REFERENCES alternativas(id)
 );
+
